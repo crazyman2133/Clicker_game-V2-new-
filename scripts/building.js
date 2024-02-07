@@ -7,3 +7,5 @@ class Building {
     // Updates the button, grey if can't afford, price, number owned, etc
     buttonState() {}
 }
+
+

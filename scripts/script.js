@@ -25,7 +25,7 @@ function incrementScore() {
 // Function to start the score increment every second
 let intervalId;
 function startScoreIncrement() {
-  intervalId = setInterval(incrementScore, 1000); // increment score every 1000 milliseconds (1 second)
+  intervalId = setInterval(incrementScore, 10000); // increment score every 1000 milliseconds (1 second)
 }
 
 // Function to purchase cursor
@@ -44,3 +44,31 @@ function purchaseCursor() {
 // Event listener for the buy cursor button
 const buyCursorButton = document.getElementById("buySingleCursor");
 buyCursorButton.addEventListener("click", purchaseCursor);
+
+// Function to start the score increment every second for the second cursor
+function startScoreIncrement2() {
+  // Increment score by 1 every second
+  intervalId2 = setInterval(() => {
+    score += 1;
+    const scoreElement = document.getElementById("score");
+    scoreElement.textContent = score;
+  }, 1000);
+}
+
+// Function to purchase second cursor
+function purchaseSecondCursor() {
+  // Perform any necessary actions to purchase the second cursor
+  if (score >= 100) {
+    score -= 100; // Decrease score by 100
+    const scoreElement = document.getElementById("score");
+    scoreElement.textContent = score;
+    startScoreIncrement2(); // Start the score increment when second cursor is purchased
+  } else {
+    alert("Not enough score to purchase a second cursor!");
+  }
+}
+
+// Event listener for the second buy cursor button
+const buySecondCursorButton = document.getElementById("buySecondCursor");
+buySecondCursorButton.addEventListener("click", purchaseSecondCursor);
+
