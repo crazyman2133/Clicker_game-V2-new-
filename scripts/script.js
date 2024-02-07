@@ -72,3 +72,30 @@ function purchaseSecondCursor() {
 const buySecondCursorButton = document.getElementById("buySecondCursor");
 buySecondCursorButton.addEventListener("click", purchaseSecondCursor);
 
+// Function to start the score increment every second for the second cursor
+function startScoreIncrement3() {
+  // Increment score by 1 every second
+  intervalId3 = setInterval(() => {
+    score += 1;
+    const scoreElement = document.getElementById("score");
+    scoreElement.textContent = score;
+  }, 100);
+}
+
+// Function to purchase second cursor
+function purchaseThirdCursor() {
+  // Perform any necessary actions to purchase the second cursor
+  if (score >= 1000) {
+    score -= 1000; // Decrease score by 100
+    const scoreElement = document.getElementById("score");
+    scoreElement.textContent = score;
+    startScoreIncrement3(); // Start the score increment when second cursor is purchased
+  } else {
+    alert("Not enough score to purchase a Triple cursor!");
+  }
+}
+
+// Event listener for the second buy cursor button
+const buyThirdCursorButton = document.getElementById("buyThirdCursor");
+buyThirdCursorButton.addEventListener("click", purchaseThirdCursor);
+

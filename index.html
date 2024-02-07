@@ -16,8 +16,8 @@
             color: white;
         }
 
-        .boughtCount {
-            color: white;
+        #score {
+            font-size: 60px; /* Adjust the font size as needed */
         }
     </style>
     <meta charset="utf-8" />
@@ -30,10 +30,10 @@
         <button type="button" onclick="scorePlusPlus()">Click Me!</button>
         <br />
         <button type="button" id="buySingleCursor" onclick="cursor.purchase()"> 💶 Buy SingleCursor ($10) </button>
-        <p class="boughtCount" id="singleCursorCount">Bought: 0</p>
         <br />
         <button type="button" id="buySecondCursor" onclick="cursor.purchase()"> 💴 Buy Double Cursor ($100) </button>
-        <p class="boughtCount" id="SecondCursorCount">Bought: 0</p>
+        <br />
+        <button type="button" id="buyThirdCursor" onclick="cursor.purchase()"> 💶💶 Buy Triple Cursor ($1000) </button>
     </main>
     <script src="/scripts/building.js"></script>
     <script src="/scripts/script.js"></script>
