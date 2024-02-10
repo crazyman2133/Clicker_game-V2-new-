@@ -2,7 +2,139 @@ html,
 body {
     background-image: url('images/background.png');
     background-size: cover;
-    margin: 10px;
+    background-repeat: no-repeat;
+    margin: 0;
     padding: 0;
-    place-items: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .start-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: url('images/background.png') no-repeat center center fixed; /* Add background image */
+        background-size: cover; /* Ensure the background image covers the entire element */
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+ /* Styles for the click-me button */
+#click-me-button {
+    background-color: #000; /* Retro black background */
+    color: #fff; /* White text color */
+    border: 2px solid #8b0000; /* Darkish lightish red outline */
+    border-radius: 5px; /* Add border radius for a rounded look */
+    padding: 90px 90px; /* Increase padding for height and width */
+    font-size: 24px; /* Increase font size */
+    margin-top: 20px;
+    cursor: pointer;
+    background-image: url('images/cookie.png'); /* Keep the image URL here */
+    background-size: cover; /* Adjusts the background size */
+    background-repeat: no-repeat; /* Prevents the background from repeating */
+    background-position: center; /* Centers the background image */
+}
+
+/* Styles for upgrade container */
+.upgrade-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align to the right side of the container */
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+}
+
+/* Styles for upgrade container */
+.upgrade-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align upgrade buttons to the center horizontally */
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+/* Styles for upgrade buttons */
+.upgrade-container button {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 200px;
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover effect for upgrade buttons */
+.upgrade-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.upgrade-container button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #000; /* Black retro background */
+    color: #fff; /* White text color */
+    border: 2px solid #8b0000; /* Darkish lightish red outline */
+    border-radius: 5px; /* Add border radius for a rounded look */
+}
+
+/* Styles for cheat menu button */
+#cheat-menu-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #000; /* Retro black color */
+    color: white;
+    border: 2px solid #8b0000; /* Darkish lightish red outline */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Styles for update announcements */
+.update-announcements {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #000; /* Retro black color */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    border: 2px solid #8b0000; /* Darkish lightish red outline */
+    color: white;
+}
+
+/* Styles for the score number */
+#score {
+    font-size: 60px;
+    background-color: #000; /* Retro black color */
+    color: white;
+    border: 2px solid #8b0000; /* Darkish lightish red outline */
+    border-radius: 5px;
+    padding: 5px 10px; /* Adjust padding as needed */
+}
+
+/* Styles for the score text */
+h1 {
+    color: white;
+    background-color: #000; /* Retro black color */
+    border: 2px solid #8b0000; /* Darkish lightish red outline */
+    border-radius: 5px;
+    padding: 10px 20px; /* Adjust padding as needed */
+}
 }

@@ -17,85 +17,51 @@ setInterval(updatePage, tickRate);
 
 // Function to increment the score
 function incrementScore() {
+  score++; // Increment the score by 1
   const scoreElement = document.getElementById("score");
-  score++;
   scoreElement.textContent = score;
 }
 
 // Function to start the score increment every second
 let intervalId;
 function startScoreIncrement() {
-  intervalId = setInterval(incrementScore, 10000); // increment score every 1000 milliseconds (1 second)
+  intervalId = setInterval(incrementScore, 1000); // increment score every 1000 milliseconds (1 second)
 }
 
+// Event listener for the "Click Me" button
+const clickMeButton = document.getElementById("click-me-button");
+clickMeButton.addEventListener("click", () => {
+  // Increment the score when the button is clicked
+  incrementScore();
+});
+
 // Function to purchase cursor
-function purchaseCursor() {
-    // Perform any necessary actions to purchase the cursor
-    if (score >= 10) {
-      score -= 10; // Decrease score by ten
-      const scoreElement = document.getElementById("score");
-      scoreElement.textContent = score;
-      startScoreIncrement(); // Start the score increment when cursor is purchased
-    } else {
-      alert("Not enough score to purchase a cursor!");
-    }
+function purchaseCursor(cost) {
+  // Perform any necessary actions to purchase the cursor
+  if (score >= cost) {
+    score -= cost; // Decrease score by the cost
+    const scoreElement = document.getElementById("score");
+    scoreElement.textContent = score;
+    startScoreIncrement(); // Start the score increment when cursor is purchased
+  } else {
+    alert("Not enough score to purchase a cursor!");
   }
+}
 
 // Event listener for the buy cursor button
 const buyCursorButton = document.getElementById("buySingleCursor");
-buyCursorButton.addEventListener("click", purchaseCursor);
-
-// Function to start the score increment every second for the second cursor
-function startScoreIncrement2() {
-  // Increment score by 1 every second
-  intervalId2 = setInterval(() => {
-    score += 1;
-    const scoreElement = document.getElementById("score");
-    scoreElement.textContent = score;
-  }, 1000);
-}
-
-// Function to purchase second cursor
-function purchaseSecondCursor() {
-  // Perform any necessary actions to purchase the second cursor
-  if (score >= 100) {
-    score -= 100; // Decrease score by 100
-    const scoreElement = document.getElementById("score");
-    scoreElement.textContent = score;
-    startScoreIncrement2(); // Start the score increment when second cursor is purchased
-  } else {
-    alert("Not enough score to purchase a second cursor!");
-  }
-}
+buyCursorButton.addEventListener("click", () => {
+  purchaseCursor(10); // Cost of single cursor is 10
+});
 
 // Event listener for the second buy cursor button
 const buySecondCursorButton = document.getElementById("buySecondCursor");
-buySecondCursorButton.addEventListener("click", purchaseSecondCursor);
+buySecondCursorButton.addEventListener("click", () => {
+  purchaseCursor(100); // Cost of second cursor is 100
+});
 
-// Function to start the score increment every second for the second cursor
-function startScoreIncrement3() {
-  // Increment score by 1 every second
-  intervalId3 = setInterval(() => {
-    score += 1;
-    const scoreElement = document.getElementById("score");
-    scoreElement.textContent = score;
-  }, 100);
-}
-
-// Function to purchase second cursor
-function purchaseThirdCursor() {
-  // Perform any necessary actions to purchase the second cursor
-  if (score >= 1000) {
-    score -= 1000; // Decrease score by 100
-    const scoreElement = document.getElementById("score");
-    scoreElement.textContent = score;
-    startScoreIncrement3(); // Start the score increment when second cursor is purchased
-  } else {
-    alert("Not enough score to purchase a Triple cursor!");
-  }
-}
-
-// Event listener for the second buy cursor button
+// Event listener for the third buy cursor button
 const buyThirdCursorButton = document.getElementById("buyThirdCursor");
-buyThirdCursorButton.addEventListener("click", purchaseThirdCursor);
-
+buyThirdCursorButton.addEventListener("click", () => {
+  purchaseCursor(1000); // Cost of third cursor is 1000
+});

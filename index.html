@@ -44,33 +44,215 @@
             margin-bottom: 10px;
             font-size: 20px;
         }
+        
+        /* Styles for update announcements */
+        .update-announcements {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.61); /* Adjust the alpha value for transparency */
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.8); /* Add a semi-transparent white outline */
+            color: rgb(39, 1, 255); /* Set the text color to white */
+        }
+
+        /* Styles for cheat menu button */
+        #cheat-menu-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Styles for cheat menu */
+        #cheat-menu {
+            display: none;
+            position: fixed;
+            bottom: 50px;
+            right: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #cheat-menu input[type="text"] {
+            margin-right: 5px;
+            padding: 5px;
+        }
+
+        #cheat-menu button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* Styles for UI popup */
+        #cheat-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+    }
+
+        #cheat-popup button#close-popup {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #f44336; /* Red color */
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+    
+    /* Styles for upgrade buttons */
+    .upgrade-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .upgrade-container button {
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #000; /* Black retro background */
+        color: #fff; /* White text color */
+        border: 2px solid #8b0000; /* Darkish lightish red outline */
+        border-radius: 5px; /* Add border radius for a rounded look */
+    }
+    
+    /* Styles for the click-me button */
+    #click-me-button {
+        background-color: #000; /* Black retro background */
+        color: #fff; /* White text color */
+        border: 2px solid #8b0000; /* Darkish lightish red outline */
+        border-radius: 5px; /* Add border radius for a rounded look */
+        padding: 20px 40px; /* Increase padding for height and width */
+        font-size: 24px; /* Increase font size */
+        margin-top: 20px;
+        cursor: pointer;
+        background-image: url('your-image-url.jpg'); /* Add your image URL here */
+        background-size: cover; /* Adjusts the background size */
+        background-repeat: no-repeat; /* Prevents the background from repeating */
+        background-position: center; /* Centers the background image */
+    }
     </style>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-    <div class="start-menu">
-        <h1>Welcome to the Game!</h1>
-        <button onclick="startGame()">Start</button>
-    </div>
-    <main style="display: none;">
-        <h1>Score:</h1>
+<!-- Update Announcements Section -->
+<div class="update-announcements">
+    <h3>Update Announcements</h3>
+    <ul>
+        <li>Update 1: New features added!</li>
+        <li>Update 2: Bug fixes applied.</li>
+    </ul>
+</div>
 
-        <h2 id="score">0</h2>
-        <button type="button" onclick="scorePlusPlus()">Click Me!</button>
-        <br />
-        <button type="button" id="buySingleCursor" onclick="cursor.purchase()"> 💶 Buy SingleCursor ($10) </button>
-        <br />
+<div class="start-menu">
+    <h1>Welcome to the Game!</h1>
+    <!-- Start button remains here -->
+    <button onclick="startGame()">Start</button>
+</div>
+<main style="display: none;">
+    <!-- Cheat Menu Button -->
+    <button id="cheat-menu-button" onclick="toggleCheatMenu()">Cheat Menu</button>
+
+    <h1>Score:</h1>
+    <h2 id="score">0</h2>
+    <!-- Replace the button with an image -->
+    <button id="click-me-button" onclick="eatCookie()"></button>
+
+    <!-- Upgrade buttons wrapped in a container -->
+    <div class="upgrade-container">
+        <button type="button" id="buySingleCursor" onclick="cursor.purchase()"> 💶 Buy Single Cursor ($10) </button>
         <button type="button" id="buySecondCursor" onclick="cursor.purchase()"> 💴 Buy Double Cursor ($100) </button>
-        <br />
         <button type="button" id="buyThirdCursor" onclick="cursor.purchase()"> 💶💶 Buy Triple Cursor ($1000) </button>
-    </main>
-    <script src="/scripts/building.js"></script>
-    <script src="/scripts/script.js"></script>
-    <script>
-        function startGame() {
-            document.querySelector('.start-menu').style.display = 'none';
-            document.querySelector('main').style.display = 'flex';
+    </div>
+</main>
+
+<!-- Cheat Menu -->
+<div id="cheat-menu">
+    <h3>Cheat Menu</h3>
+    <input type="text" id="cheat-code" placeholder="Enter cheat code">
+    <button onclick="applyCheat()">Apply</button>
+</div>
+
+<!-- UI Popup -->
+<div id="cheat-popup">
+    <h3>Cheat Activated!</h3>
+    <button id="close-popup" onclick="closePopup()">X</button> <!-- Close button added -->
+    <button type="button" onclick="addToScore(1000)">+1000</button> <!-- Updated button text and function call -->
+    <button>Button 2</button>
+    <button>Button 3</button>
+</div>
+
+<script>
+    // Function to close the UI popup
+    function closePopup() {
+        document.getElementById('cheat-popup').style.display = 'none';
+    }
+
+// Function to add an amount to the score
+function addToScore(amount) {
+    score += amount; // Add the specified amount to the score
+    updatePage(); // Update the score displayed on the page
+}
+</script>
+
+
+<script src="/scripts/building.js"></script>
+<script src="/scripts/script.js"></script>
+<script>
+    function startGame() {
+        document.querySelector('.start-menu').style.display = 'none';
+        document.querySelector('main').style.display = 'flex';
+    }
+
+    // Function to toggle the cheat menu visibility
+    function toggleCheatMenu() {
+        var cheatMenu = document.getElementById('cheat-menu');
+        if (cheatMenu.style.display === 'block') {
+            cheatMenu.style.display = 'none';
+        } else {
+            cheatMenu.style.display = 'block';
         }
-    </script>
+    }
+
+    // Function to apply cheats
+    function applyCheat() {
+        var cheatCode = document.getElementById('cheat-code').value;
+        if (cheatCode.toLowerCase() === 'cookie') {
+            // Show the UI popup with buttons
+            document.getElementById('cheat-popup').style.display = 'block';
+        } else {
+            alert('Invalid cheat code');
+        }
+        // Clear the cheat code input field
+        document.getElementById('cheat-code').value = '';
+    }
+</script>
 </body>
 </html>
+
